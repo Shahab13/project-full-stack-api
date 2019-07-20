@@ -1,4 +1,5 @@
-# project-full-stack-api
+# My-project-full-stack-api
+
 # Exercise: Full Stack Coworking
 
 This project will test your ability to build a RESTful API from scratch. This project should utilize the following technologies:
@@ -14,7 +15,7 @@ You will be building a full-stack API with the following resources based off of 
 - **Unit:** The **Unit** resource is a generic term for a rentable space.
   - **kind:** (Required) The kind of unit available. _Only_ the following options should be allowed: "seat", "desk", "small office", "large office", "floor".
   - **floor:** (Required) An integer which represents the floor the rentable unit is on.
-  - **special_monthly_offer:** An optional integer field. If filled in, represents a special deal that the company will be paying _in cents_. For example, if the unit is being leased for $600/mo, this field would be `600000`.
+  - **special_monthly_offer:** An optional integer field. If filled in, represents a special deal that the company will be paying _in cents_. For example, if the unit is being leased for \$600/mo, this field would be `600000`.
   - **company:** The **Company** resource, listed below.
 - **Company:** The company that is leasing the rentable unit.
   - **name:** (Required) The name of the company.
@@ -57,103 +58,103 @@ Your API should include the following routes with the specified functionality.
 
 ### GET /api/v1/units
 
-* e.g. `GET http://localhost:5000/api/v1/units`
+- e.g. `GET http://localhost:5000/api/v1/units`
 
 Return a list of all of the units with all related information.
 
 ### GET /api/v1/units?kind=[kind]
 
-* e.g. `GET http://localhost:5000/api/v1/units?kind=desk`
+- e.g. `GET http://localhost:5000/api/v1/units?kind=desk`
 
 Return a list of all units where the kind is equal to the provided kind. If none are found, return an empty array.
 
 ### GET /api/v1/units?floor=[integer]
 
-* e.g. `GET http://localhost:5000/api/v1/units?floor=2`
+- e.g. `GET http://localhost:5000/api/v1/units?floor=2`
 
 Return a list of all units that are on the provided floor. If none are found, return an empty array.
 
 ### GET /api/v1/units?occupied=[true/false]
 
-* e.g. `GET http://localhost:5000/api/v1/units?occupied=true`
+- e.g. `GET http://localhost:5000/api/v1/units?occupied=true`
 
 If `true`, return a list of all units that have a company associated with them. If `false`, return a list of all units that have no company associated with them. If none are found in either case, return an empty array.
 
 ### PATCH /api/v1/units/[id]
 
-* e.g. `PATCH http://localhost:5000/api/v1/units/5`
+- e.g. `PATCH http://localhost:5000/api/v1/units/5`
 
 Update the unit with whatever information is specified in the request body and return the newly updated document. If the ID provided does not match a unit, return a 404 and an appropriate message. **Note:** You should allow for the company to be added from this route, if provided.
 
 ### PATCH /api/v1/units/[id]/company
 
-* e.g. `PATCH http://localhost:5000/api/v1/units/5/company`
+- e.g. `PATCH http://localhost:5000/api/v1/units/5/company`
 
 Update the company associated with the given unit and return the newly updated document. This can also be used to change a unit's listing from being empty to being occupied. If the ID provided does not match a unit, return a 404 and an appropriate message.
 
 ### DELETE /api/v1/units/[id]/company
 
-* e.g. `DELETE http://localhost:5000/api/v1/units/5/company`
+- e.g. `DELETE http://localhost:5000/api/v1/units/5/company`
 
 Remove the company from the given unit. If the ID provided does not match a unit, return a 404 and an appropriate message.
 
 ### GET /api/v1/units/[id]/company/employees
 
-* e.g. `GET http://localhost:5000/api/v1/units/5/company/employees`
+- e.g. `GET http://localhost:5000/api/v1/units/5/company/employees`
 
-Return all employees for the given company. If no company is listed, return a 404 and an appropriate message. If the ID provided does not match a unit, return a 404 and a _different_ appropriate message. 
+Return all employees for the given company. If no company is listed, return a 404 and an appropriate message. If the ID provided does not match a unit, return a 404 and a _different_ appropriate message.
 
 ### GET /api/v1/units/[id]/company/employees/[id]
 
-* e.g. `GET http://localhost:5000/api/v1/units/5/company/employees/12`
+- e.g. `GET http://localhost:5000/api/v1/units/5/company/employees/12`
 
 Return the specific employee for the given company. If no company is listed, return a 404 and an appropriate message. If the unit ID provided does not match a unit, return a 404 and a _different_ appropriate message. If no employee with that ID exists, return a _different_ appropriate message.
 
 ### POST /api/v1/units/[id]/company/employees
 
-* e.g. `POST http://localhost:5000/api/v1/units/5/company/employees`
+- e.g. `POST http://localhost:5000/api/v1/units/5/company/employees`
 
 Create a new employee and return that employee for the given company. If no company is listed, return a 404 and an appropriate message. If the unit ID provided does not match a unit, return a 404 and a _different_ appropriate message. If the employee information is malformed in any way, return a 400 and an error message with as much detail as possible.
 
 ### PATCH /api/v1/units/[id]/company/employees/[id]
 
-* e.g. `PATCH http://localhost:5000/api/v1/units/5/company/employees/12`
+- e.g. `PATCH http://localhost:5000/api/v1/units/5/company/employees/12`
 
 Update an employee and return that employee for the given company. If no company is listed, return a 404 and an appropriate message. If the unit ID provided does not match a unit, return a 404 and a _different_ appropriate message. If the employee information is malformed in any way, return a 400 and an error message with as much detail as possible. If no employee with that ID exists, return a _different_ appropriate message.
 
 ### DELETE /api/v1/units/[id]/company/employees/[id]
 
-* e.g. `DELETE http://localhost:5000/api/v1/units/5/company/employees/12`
+- e.g. `DELETE http://localhost:5000/api/v1/units/5/company/employees/12`
 
 Destroy the employee document and return that employee's document for the given company. If no company is listed, return a 404 and an appropriate message. If the unit ID provided does not match a unit, return a 404 and a _different_ appropriate message. If no employee with that ID exists, return a _different_ appropriate message.
 
 ### GET /api/v1/companies
 
-* e.g. `GET http://localhost:5000/api/v1/companies`
+- e.g. `GET http://localhost:5000/api/v1/companies`
 
 Return all companies with all their employees information. Do not return an unit information.
 
 ### GET /api/v1/companies?name=[partial-query]
 
-* e.g. `GET http://localhost:5000/api/v1/companies?name=oog`
+- e.g. `GET http://localhost:5000/api/v1/companies?name=oog`
 
 Return all companies with all their employees information based off of the partial search string. For example, the above search would return companies with the name of "Google" and "Ooga". Do not return any unit information. If no companies are found, return an empty array.
 
 ### GET /api/v1/companies?employees_lte=[integer]
 
-* e.g. `GET http://localhost:5000/api/v1/companies?employees_lte=50`
+- e.g. `GET http://localhost:5000/api/v1/companies?employees_lte=50`
 
 Return all companies with all their employees where the number of employees is less than or equal to the given integer. Do not return any unit information. If no companies are found, return an empty array.
 
 ### GET /api/v1/companies?employees_gte=[integer]
 
-* e.g. `GET http://localhost:5000/api/v1/companies?employees_gte=100`
+- e.g. `GET http://localhost:5000/api/v1/companies?employees_gte=100`
 
 Return all companies with all their employees where the number of employees is greater than or equal to the given integer. Do not return any unit information. If no companies are found, return an empty array.
 
 ### GET /api/v1/employees?name=[partial-query]
 
-* e.g. `GET http://localhost:5000/api/v1/employees?name=ada`
+- e.g. `GET http://localhost:5000/api/v1/employees?name=ada`
 
 Return all employees based off of the partial search string. The search should be for their full name. For example, the above search would return the following employees:
 
@@ -165,6 +166,6 @@ Do not return any unit or company information. If no employees are found, return
 
 ### GET /api/v1/employees?birthday=[date]
 
-* e.g. `GET http://localhost:5000/api/v1/employees?birthday=[date]`
+- e.g. `GET http://localhost:5000/api/v1/employees?birthday=[date]`
 
 Return all employees who have a birthday on the given date. Do not return any unit or company information. If no employees are found, return an empty array.
