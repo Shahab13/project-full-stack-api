@@ -1,3 +1,7 @@
+# My stuff
+nodemon.json
+.vscode
+
 # Logs
 logs
 *.log
