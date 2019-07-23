@@ -16,11 +16,12 @@ if (MONGO_DB) {
 if (NODE_ENV === "development") app.use(morgan("dev"));
 app.use(require("body-parser").json());
 
+/************************************************************************* */
 // Routes
-
 app.use("/api/v1/units", require("./api/routes/units"));
-//app.use("/api/v1/units?kind", require("./api/routes/units_kind"));
+app.use("/api/v1/units/:unitId/company", require("./api/routes/company"));
 
+/************************************************************************* */
 app.use(
   ({ status = 500, message = "Something went wrong" }, req, res, next) => {
     res.status(status).json({ status, message });

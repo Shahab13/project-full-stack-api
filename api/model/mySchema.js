@@ -18,7 +18,7 @@ var schema = new Schema(
     email: String
   },
   {
-    timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
+    timestamps: { createdAt: "created_at", updatedAt: "updated_at", Id: "-id" }
   }
 );
 
