@@ -12,10 +12,14 @@ if (MONGO_DB) {
   console.log("MONGO_DB is not provided");
 }
 
+// Application-level Middleware
 if (NODE_ENV === "development") app.use(morgan("dev"));
 app.use(require("body-parser").json());
 
-//app.use("/api/model", require("./api/routes/courses"));
+// Routes
+
+app.use("/api/v1/units", require("./api/routes/units"));
+//app.use("/api/v1/units?kind", require("./api/routes/units_kind"));
 
 app.use(
   ({ status = 500, message = "Something went wrong" }, req, res, next) => {

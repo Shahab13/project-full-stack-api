@@ -3,31 +3,19 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema(
   {
-    //_id: Schema.Types.ObjectId,
+    kind: String,
+    floor: String,
+    special_monthly_offer: Number,
 
-    Unit: [
-      {
-        kind: { type: String, required: true },
-        floor: { type: String, required: true },
-        special_monthly_offer: { type: Number }
-      }
-    ],
-    Company: [
-      {
-        name: { type: String, required: true },
-        contact_email: { type: String, required: true }
-      }
-    ],
-    Employee: [
-      {
-        first_name: { type: String, required: true },
-        last_name: { type: String, required: true },
-        preferred_name: String,
-        position: String,
-        birthday: Date,
-        email: String
-      }
-    ]
+    name: String,
+    contact_email: String,
+
+    first_name: String,
+    last_name: String,
+    preferred_name: String,
+    position: String,
+    birthday: String,
+    email: String
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
