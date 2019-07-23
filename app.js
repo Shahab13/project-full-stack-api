@@ -24,6 +24,7 @@ app.use(
   "/api/v1/units/:unitId/company/employees",
   require("./api/routes/employees")
 );
+app.use("/api/v1/companies", require("./api/routes/my_componies"));
 
 /************************************************************************* */
 app.use(

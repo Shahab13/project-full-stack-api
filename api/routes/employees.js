@@ -67,7 +67,7 @@ router.patch("/:id", async (req, res, next) => {
 /******************************************************** */
 router.delete("/:id", async (req, res, next) => {
   const status = 200;
-  console.log("ddddddddddddddddddd");
+  //console.log("ddddddddddddddddddd");
   const response = await Myschema.findOneAndDelete({
     _id: req.params.id
   });

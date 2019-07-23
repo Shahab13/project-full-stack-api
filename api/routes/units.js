@@ -26,49 +26,5 @@ router.patch("/:id", async (req, res, next) => {
   }
 });
 /******************************************************** */
-// router.post("/", async (req, res, next) => {
-//   const status = 201;
-//   try {
-//     Myschema.create(req.body).then(response => {
-//       res.json({ status, response });
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     const e = new Error("Somthing went wrong");
-
-//     e.status = 400;
-//     next(e);
-//   }
-// });
-
-// /******************************************************** */
-// router.get("/:id", async (req, res, next) => {
-//   const status = 200;
-//   Myschema.findById(req.params.id)
-//     .select("title  start_year season_count -_id")
-//     .then(response => {
-//       res.json({ status, response });
-//     });
-// });
-
-// router.put("/:id", async (req, res, next) => {
-//   const status = 200;
-//   const response = await Myschema.findOneAndUpdate(
-//     { _id: req.params.id },
-//     { title: req.body.title },
-//     { new: true }
-//   ).select("title  start_year season_count -_id");
-
-//   res.json({ status, response });
-// });
-
-// router.delete("/:id", async (req, res, next) => {
-//   const status = 200;
-//   const response = await Myschema.findOneAndDelete({
-//     _id: req.params.id
-//   }).select("title  start_year season_count -_id");
-
-//   res.json({ status, response });
-// });
 
 module.exports = router;
