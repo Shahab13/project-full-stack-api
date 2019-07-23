@@ -9,13 +9,16 @@ var schema = new Schema(
 
     name: String,
     contact_email: String,
-
-    first_name: String,
-    last_name: String,
-    preferred_name: String,
-    position: String,
-    birthday: String,
-    email: String
+    Employee: [
+      {
+        first_name: String,
+        last_name: String,
+        preferred_name: String,
+        position: String,
+        birthday: String,
+        email: String
+      }
+    ]
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at", Id: "-id" }
